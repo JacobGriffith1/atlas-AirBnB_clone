@@ -14,6 +14,13 @@ class BaseModel:
         self.created_at = datetime.utcnow() #datetime when created
         self.updated_at = datetime.utcnow() #datetime when updated
 
+    def __str__(self):
+        """
+
+        """
+        clsname = self.__class__.__name__
+        return "[{}] ({}) {}".format(clsname, self.id, self.__dict__)
+
     def save(self):
         """
 
