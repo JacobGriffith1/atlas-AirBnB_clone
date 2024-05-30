@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 """
-Module for BaseModel classl
+Module for BaseModel class
 """
 import uuid
 from datetime import datetime
 
 class BaseModel:
-    """classs Basemodel"""
+    """class Basemodel"""
     def __init__(self):
         """ contstructor """
         self.id = str(uuid.uuid4()) #unique id and converted to string
 
-        self.created_at = datetime.utcnow() #datetime when created
-        self.updated_at = datetime.utcnow() #datetime when updated
+        self.created_at = datetime.now() #datetime when created
+        self.updated_at = datetime.now() #datetime when updated
 
     def __str__(self):
         """
@@ -25,7 +25,7 @@ class BaseModel:
         """
 
         """
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """
