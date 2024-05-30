@@ -7,18 +7,25 @@ from datetime import datetime
 
 class BaseModel:
     """classs Basemodel"""
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         """ contstructor """
         self.id = str(uuid.uuid4()) #unique id and converted to string
 
         self.created_at = datetime.utcnow() #datetime when created
         self.updated_at = datetime.utcnow() #datetime when updated
 
-if __name__ == "__main__":
-    # Create an instance of BaseModel
-    base_model_instance = BaseModel()
+    def save(self):
+        """
 
-    # Print the attributes of the instance
-    print(f"ID: {base_model_instance.id}")
-    print(f"Created at: {base_model_instance.created_at}")
-    print(f"Updated at: {base_model_instance.updated_at}")
+        """
+        self.updated_at = datetime.utcnow()
+
+    def to_dict(self):
+        """
+
+        """
+        dict_copy = self.__dict__.copy()
+        dict_copy["created_at"] = self.created_at.isoformat()
+        dict_copy["updated_at"] = self.updated_at.isoformat()
+        dict_copy['__class__'] = self.__class__.__name__
+        return dict_copy
