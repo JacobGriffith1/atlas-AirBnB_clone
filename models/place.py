@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""
-console module
-"""
+"""Module contains class: 'Place'"""
+from base_model import BaseModel
 
-import cmd
 
-class HBNBCommand(cmd.Cmd):
-    """HBNB Class"""
-    prompt = '(hbnb) '
-
-    def do_quit(self, arg):
-        """ Define quit """
-        return True
-    
-    def do_EOF(self, arg):
-        """ Define end of function """
-        return True
+class Place(BaseModel):
+    """Defines place details"""
+    city_id = ""
+    user_id = ""
+    name = ""
+    description = ""
+    number_rooms = 0
+    number_bathrooms = 0
+    max_guest = 0
+    price_by_night = 0
+    latitude = 0.0
+    longitude = 0.0
+    amenity_ids = []
