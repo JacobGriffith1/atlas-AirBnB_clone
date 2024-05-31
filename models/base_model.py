@@ -29,10 +29,20 @@ class BaseModel:
 
     def to_dict(self):
         """
-
+        Returns a dictionary containing all keys/values
+        of '__dict__' of the instance.
+        Times are converted to ISO format.
         """
-        dict_copy = self.__dict__.copy()
-        dict_copy["created_at"] = self.created_at.isoformat()
-        dict_copy["updated_at"] = self.updated_at.isoformat()
+        dict_copy = {}
+
+        for key, value in self.__dict__.items():
+            if key == "created_at" or key == "updated_at":
+                dict_copy[key] = value.isoformat()
+            else:
+                if not value:
+                    pass
+                else:
+                    dict_copy[key] = value
         dict_copy['__class__'] = self.__class__.__name__
+
         return dict_copy
