@@ -26,6 +26,8 @@ class BaseModel:
 
         """
         self.updated_at = datetime.now()
+        from models import storage  # Import storage module here
+        storage.save(self)
 
     def to_dict(self):
         """
