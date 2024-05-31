@@ -4,9 +4,10 @@ Module for BaseModel class
 """
 import uuid
 from datetime import datetime
+from models import storage  # Import storage module here
 
 class BaseModel:
-    """class Basemodel"""
+    """Class BaseModel"""
     def __init__(self):
         """ contstructor """
         self.id = str(uuid.uuid4()) #unique id and converted to string
@@ -26,7 +27,6 @@ class BaseModel:
 
         """
         self.updated_at = datetime.now()
-        from models import storage  # Import storage module here
         storage.save(self)
 
     def to_dict(self):
