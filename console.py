@@ -6,7 +6,6 @@ console module
 import cmd
 import shlex
 from models.base_model import BaseModel
-from models import storage
 
 class_registry = {
     'BaseModel': BaseModel,
