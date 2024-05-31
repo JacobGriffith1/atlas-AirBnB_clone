@@ -8,9 +8,8 @@ import shlex
 from models.base_model import BaseModel
 
 class_registry = {
-    'BaseModel' : BaseModel,
-#add other model classes here, user, place etc
-
+    'BaseModel': BaseModel,
+    # Add other model classes here, e.g., 'User': User, 'Place': Place, etc.
 }
 
 class HBNBCommand(cmd.Cmd):
@@ -18,21 +17,20 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """ Define quit """
+        """Define quit"""
         return True
     
     def do_EOF(self, arg):
-        """ Define end of function """
-        print ("")
+        """Define end of function"""
+        print("")
         return True
-
 
     def emptyline(self):
         """Do nothing on empty input line."""
         pass
 
     def do_create(self, arg):
-        """ Creates new instance of BaseModel and saves it to JSON file """
+        """Creates new instance of BaseModel and saves it to JSON file"""
         args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
@@ -43,11 +41,17 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        # Creates an instance of a class
+        # Create an instance of the class
         new_instance = class_registry[class_name]()
         new_instance.save()
         print(new_instance.id)
 
-
-if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    def do_show(self, arg):
+        """Print the string representation of an instance based on the class name and id."""
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
