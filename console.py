@@ -17,3 +17,7 @@ class HBNBCommand(cmd.Cmd):
         """ Define end of function """
         print ("")
         return True
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
