@@ -11,9 +11,10 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """ contstructor """
         if kwargs:
+            time = "%Y-%m-%dT%H:%M:%S.%f" # ISO format written manually
             for key, value in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
-                    value = datetime.strptime(kwargs[key]).isoformat
+                    value = datetime.strptime(kwargs[key], time)
                 if key != '__class__':
                     setattr(self, key, value)
         else:
