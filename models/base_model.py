@@ -4,7 +4,7 @@ Module for BaseModel class
 """
 import uuid
 from datetime import datetime
-from models.__init__ import storage
+from models import storage
 
 class BaseModel:
     """Class BaseModel"""
