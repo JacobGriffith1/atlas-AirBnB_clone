@@ -2,13 +2,6 @@
 """ Module contains class: FileStorage """
 import json
 import os
-from models.base_model import BaseModel
-from models.user import User
-from models.place import Place
-from models.state import State
-from models.city import City
-from models.amenity import Amenity
-from models.review import Review
 
 class FileStorage:
     """ Serializes and deserializes JSON objects """
@@ -43,6 +36,14 @@ class FileStorage:
         (only if the JSON file (__file_path) exists;
         otherwise, do nothing.)
         """
+        from models.base_model import BaseModel
+        from models.user import User
+        from models.place import Place
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.review import Review
+
         dictionary = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
                     'State': State, 'City': City,
                     'Amenity': Amenity, 'Review': Review}
