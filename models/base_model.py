@@ -4,16 +4,23 @@ Module for BaseModel class
 """
 import uuid
 from datetime import datetime
-from models import storage  # Import storage module here
+from models.__init__ import storage
 
 class BaseModel:
     """Class BaseModel"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ contstructor """
-        self.id = str(uuid.uuid4()) #unique id and converted to string
-
-        self.created_at = datetime.now() #datetime when created
-        self.updated_at = datetime.now() #datetime when updated
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    value = datetime.strptime(kwargs[key],"").isoformat
+                if key != '__class__':
+                    setattr(self, key, value)
+        else:
+            self.id = str(uuid.uuid4()) #unique id and converted to string
+            self.created_at = datetime.now() #datetime when created
+            self.updated_at = self.created_at #datetime when last updated
+            storage.new(self)
 
     def __str__(self):
         """
