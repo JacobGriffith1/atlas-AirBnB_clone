@@ -6,11 +6,22 @@ console module
 import cmd
 import shlex
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.review import Review
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
 from models import storage
 
 class_registry = {
     'BaseModel': BaseModel,
-    # Add other model classes here, e.g., 'User': User, 'Place': Place, etc.
+    'User': User,
+    'State': State,
+    'Review': Review,
+    'Place': Place,
+    'City': City,
+    'Amenity': Amenity
 }
 
 class HBNBCommand(cmd.Cmd):
