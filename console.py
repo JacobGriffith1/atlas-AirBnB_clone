@@ -6,6 +6,7 @@ console module
 import cmd
 import shlex
 from models.base_model import BaseModel
+from models import storage
 
 class_registry = {
     'BaseModel': BaseModel,
@@ -56,6 +57,47 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
+    def do_destroy(self, arg):
+        """delete an instance based on the class name and id"""
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+            return
+        if len(args) == 1:
+            print("** instance id missing **")
+            return
+        
+        class_name = args[0]
+        instance_id = args[1]
+        if class_name not in class_registry:
+            print("** class doesn't exist **")
+            return
+        
+        key = "{}.{}".format(class_name, instance_id) # Create the key for the instance
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+        
+        del storage.all()[key] # Delete instance from storage
+        storage.save() # Save updated storage
+
+    def do_all(self, arg):
+        """
+        Prints all string representation of all
+        instances based or not on the class name
+        """
+        args = shlex.split(arg)
+        if len(args) > 0:
+            class_name = args[0]
+            if class_name not in class_registry:
+                print("** class doesn't exist **")
+                return
+            # Print all instances of specified class
+            print([str(obj) for obj in storage.all().values()
+                   if type(obj).__name__ == class_name])
+        else:
+            # print all instances regardless of class
+            print([str(obj) for obj in storage.all().values()])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
