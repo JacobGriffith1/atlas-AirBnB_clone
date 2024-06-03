@@ -5,6 +5,7 @@ import os
 import json
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models import storage
 
 
 class Test_File_Storage(unittest.TestCase):
@@ -29,6 +30,7 @@ class Test_File_Storage(unittest.TestCase):
         # verify that data in the file matches test objects attributes
         self.assertEqual(data[key]['id'], "1234")
         self.assertEqual(data[key]['__class__'], self.test_obj__class__.__name__)
+
 
 if __name__ == '__main__':
     unittest.main()
