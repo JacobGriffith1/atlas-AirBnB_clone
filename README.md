@@ -21,10 +21,10 @@ This is the first step towards building your first full web application: the Air
 
 | Command  | Description |
 | ------------- | ------------- |
-| Quit  | Quits or exits the console |
-| EOF  |  ```bash ctrl+D ``` Will quit or exit the console |
-| Create  | Content Cell  |
-| Help or Help <command> |  Displays all available commands and explains specific commands |
-| Show   |         |
-| Destroy  |       |
-| All  |      |
+| ```quit```  | Quits or exits the console |
+| ```EOF```  |  ```ctrl+D ``` Will quit or exit the console |
+| ```create <classname>```  | Creates Object, saves it to JSON file, prints out Objects ID |
+| ```help``` or ```Help <command>``` |  Displays all available commands and explains specific commands |
+| ```Show <class> <ID>```  | Shows string representation of object     |
+| ```Destroy <class> <ID>``` | Deletes object based on classname and ID      |
+| ```All ``` |  Prints all strings representing a object and all of a specific class    |
