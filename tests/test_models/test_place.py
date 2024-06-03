@@ -9,6 +9,8 @@ class Test_Place(unittest.TestCase):
 
     def test_place_initialization(self):
         """ test initialization of place attributes """
+        self.place = Place()
+        
         self.assertEqual(self.place.city_id, "")
         self.assertEqual(self.place.user_id, "")
         self.assertEqual(self.place.name, "")
@@ -23,6 +25,7 @@ class Test_Place(unittest.TestCase):
 
     def test_place_attributes(self):
         """ check that attributes are properly assigned """
+        self.place = Place()
 
         # assign values to attributes
         self.place.city_id = "1234"
