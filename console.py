@@ -24,6 +24,7 @@ class_registry = {
     'Amenity': Amenity
 }
 
+
 class HBNBCommand(cmd.Cmd):
     """HBNB Class"""
     prompt = "(hbnb) "
@@ -59,7 +60,10 @@ class HBNBCommand(cmd.Cmd):
         print(new_instance.id)
 
     def do_show(self, arg):
-        """Print the string representation of an instance based on the class name and id."""
+        """
+        Print the string representation of an instance 
+        based on the class name and id.
+        """
         if not arg:
             print("** class name missing **")
             return
@@ -89,20 +93,21 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 1:
             print("** instance id missing **")
             return
-        
+
         class_name = args[0]
         instance_id = args[1]
         if class_name not in class_registry:
             print("** class doesn't exist **")
             return
         
-        key = "{}.{}".format(class_name, instance_id) # Create the key for the instance
+        key = "{}.{}".format(class_name, instance_id)
+        # Create the key for the instance
         if key not in storage.all():
             print("** no instance found **")
             return
         
-        del storage.all()[key] # Delete instance from storage
-        storage.save() # Save updated storage
+        del storage.all()[key]  # Delete instance from storage
+        storage.save()  # Save updated storage
 
     def do_all(self, arg):
         """
@@ -121,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             # print all instances regardless of class
             print([str(obj) for obj in storage.all().values()])
-    
+
     def do_update(self, arg):
         """
         Updates an instance based on the class name and id by
@@ -131,12 +136,12 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        
+
         cat = ""
         for argv in arg.split(','):
             cat = cat + argv
             # concatenating 'arg' in case of whitespace
-        
+
         carg = shlex.split(cat)
         # concatenated 'arg'
 
@@ -159,6 +164,7 @@ class HBNBCommand(cmd.Cmd):
                         storage.save()
                     return
             print("** no instance found **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
