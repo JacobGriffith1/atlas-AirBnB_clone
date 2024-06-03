@@ -2,7 +2,6 @@
 """
 console module
 """
-
 import cmd
 import shlex
 from models.base_model import BaseModel
@@ -13,6 +12,7 @@ from models.place import Place
 from models.city import City
 from models.amenity import Amenity
 from models import storage
+
 
 class_registry = {
     'BaseModel': BaseModel,
@@ -31,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Define quit"""
         return True
-    
+
     def do_EOF(self, arg):
         """Define end of function"""
         print("")
@@ -60,13 +60,25 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Print the string representation of an instance based on the class name and id."""
-        args = shlex.split(arg)
-        if len(args) == 0:
+        if not arg:
             print("** class name missing **")
             return
-        if len(args) == 1:
+
+        args = arg.split(' ')
+
+        if args[0] not in class_registry:
+            print("** class doesn't exist **")
+        elif len(args) == 1:
             print("** instance id missing **")
-            return
+        else:
+            objs = storage.all()
+            for key, value in objs.items():
+                objname = value.__class__.__name__
+                objid = value.id
+                if objname == args[0] and objid == args[1].strip('"'):
+                    print(value)
+                    return
+            print("** no instance found **")
 
     def do_destroy(self, arg):
         """delete an instance based on the class name and id"""
