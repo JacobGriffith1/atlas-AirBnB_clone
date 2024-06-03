@@ -29,8 +29,8 @@ class TestBaseModel(unittest.TestCase):
         model_dict = model.to_dict()
         # check that id, created_at, and updated_at are set and are strings
         self.assertEqual(model_dict['id'], model.id)
-        self.assertEqual(model_dict['created_at'], model.updated_at.isoformat)
-        self.assertEqual(model_dict['updated_at'], model.updated_at.isoformat)
+        self.assertEqual(model_dict['created_at'], model.updated_at.isoformat())
+        self.assertEqual(model_dict['updated_at'], model.updated_at.isoformat())
 
 if __name__ == '__main__':
     unittest.main()
