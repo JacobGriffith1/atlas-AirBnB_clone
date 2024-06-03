@@ -21,6 +21,10 @@ This is the first step towards building your first full web application: the Air
 
 | Command  | Description |
 | ------------- | ------------- |
-| Quit  | Content Cell  |
+| Quit  | Quits or exits the console |
+| EOF  |  ```bash ctrl+D ``` Will quit or exit the console |
 | Create  | Content Cell  |
+| Help or Help <command> |  Displays all available commands and explains specific commands |
 | Show   |         |
+| Destroy  |       |
+| All  |      |
