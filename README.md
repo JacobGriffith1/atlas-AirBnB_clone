@@ -28,3 +28,23 @@ This is the first step towards building your first full web application: the Air
 | ```Show <class> <ID>```  | Shows string representation of object     |
 | ```Destroy <class> <ID>``` | Deletes object based on classname and ID      |
 | ```All ``` |  Prints all strings representing a object and all of a specific class    |
+
+## Examples
+```
+$ ./console.py 
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+(hbnb) help create
+Creates new instance of BaseModel and saves it to JSON file
+(hbnb) help update
+
+        Updates an instance based on the class name and id by
+        adding or updating attribute
+        (save the change into the JSON file).
+        
+(hbnb) quit
+$```
