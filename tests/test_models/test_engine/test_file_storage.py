@@ -13,10 +13,8 @@ class Test_File_Storage(unittest.TestCase):
 
     def test_setup(self):
         """ set up for tests """
-        self.file_path = storage.__file_path
         self.storage = FileStorage()
-        self.test_obj = BaseModel()
-        self.test_obj.id = "1234"
+        self.test_obj = BaseModel(id="1234")
         self.storage.new(self.test_obj)
 
     def test_save(self):
@@ -26,7 +24,7 @@ class Test_File_Storage(unittest.TestCase):
         storage.save()
 
         # check that the file was created
-        self.assertTrue(os.path.exists(self.file_path))
+        self.assertTrue(os.path.exists(self.storage.__file_path))
 
         # check that file contains correct data
         with open(self.file_path, 'r') as f:
