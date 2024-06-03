@@ -47,4 +47,5 @@ Creates new instance of BaseModel and saves it to JSON file
         (save the change into the JSON file).
         
 (hbnb) quit
-$```
+$
+```
