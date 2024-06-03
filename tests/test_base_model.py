@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """ unittest file for base_model.py"""
 import unittest
-from datetime import datetime
+import os
+from models import storage
+import datetime
+from models.engine.file_storage import FileStorage
 from models.base_model import BaseModel
 
 
@@ -20,7 +23,7 @@ class TestBaseModel(unittest.TestCase):
         """test the save method"""
         model = BaseModel()
         old_updated_at = model.updated_at
-        model.save()
+        self.model.save()
         # check that updated_at is updated
         self.assertNotEqual(model.updated_at, old_updated_at)
 
