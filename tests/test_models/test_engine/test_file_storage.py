@@ -11,6 +11,14 @@ from models.__init__ import storage
 class Test_File_Storage(unittest.TestCase):
     """ test cases for FileStorage class """
 
+    def test_setup(self):
+        """ set up for tests """
+        self.file_path = "file.json"
+        self.storage = FileStorage()
+        self.test_obj = BaseModel()
+        self.test_obj.id = "1234"
+        self.storage.new(self.test_obj)
+
     def test_save(self):
         """ test that save method serializes '__objects' to the JSON file """
         
@@ -28,7 +36,7 @@ class Test_File_Storage(unittest.TestCase):
         # check that key is in JSON file
         self.assertIn(key, data)
         # verify that data in the file matches test objects attributes
-        self.assertEqual(data[key]['id'], "1234")
+        self.assertEqual(data[key]['id'], self.test_obj.id)
         self.assertEqual(data[key]['__class__'], self.test_obj__class__.__name__)
 
 if __name__ == '__main__':
