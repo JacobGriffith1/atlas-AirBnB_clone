@@ -13,7 +13,7 @@ class Test_File_Storage(unittest.TestCase):
 
     def test_setup(self):
         """ set up for tests """
-        storage = FileStorage()
+        self.storage = FileStorage()
         self.test_obj = BaseModel(id="1234")
         self.storage.new(self.test_obj)
 
@@ -21,13 +21,13 @@ class Test_File_Storage(unittest.TestCase):
         """ test that save method serializes '__objects' to the JSON file """
         
         # call save method
-        storage.save()
+        self.storage.save()
 
         # check that the file was created
-        self.assertTrue(os.path.exists(storage.__file_path))
+        self.assertTrue(os.path.exists(self.storage.__file_path))
 
         # check that file contains correct data
-        with open(self.file_path, 'r') as f:
+        with open(self.storage.__file_path, 'r') as f:
             data = json.load(f)
 
         key = "{}.{}".format(self.test_obj.__class__.__name__, "1234")
