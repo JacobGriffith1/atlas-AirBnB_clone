@@ -26,7 +26,7 @@ class BaseModel:
 
     def __str__(self):
         """
-        Prints the string representation of an object's attributes.
+        Returns class name, id, attribute dictionary
         """
         clsname = self.__class__.__name__
         return "[{}] ({}) {}".format(clsname, self.id, self.__dict__)
