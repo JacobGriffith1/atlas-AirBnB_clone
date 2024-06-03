@@ -13,7 +13,7 @@ class Test_File_Storage(unittest.TestCase):
 
     def test_setup(self):
         """ set up for tests """
-        self.file_path = "file.json"
+        self.file_path = FileStorage.__file_path
         self.storage = FileStorage()
         self.test_obj = BaseModel()
         self.test_obj.id = "1234"
