@@ -15,3 +15,11 @@ This is the first step towards building your first full web application: the Air
 * Access AirBnb directory: cd AirBnB_clone    
 * Run hbnb(interactively): ./console and then press enter command
 * Run hbnb(non-interactively): echo "<command>" | ./console.py
+
+## List of commands
+
+
+| Command  | Description |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
