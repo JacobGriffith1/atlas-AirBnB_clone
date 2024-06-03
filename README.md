@@ -1,1 +1,3 @@
-This is just filler, will go back and add to it as it starts working and we add features.
+# The Atlas AirBnB Console
+
+![alt text](https://github.com/moshjerrick/atlas-AirBnB_clone/blob/main/Airbnb_Logo_Be%CC%81lo.svg.png)
