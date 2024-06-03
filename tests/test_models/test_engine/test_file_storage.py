@@ -21,7 +21,7 @@ class Test_File_Storage(unittest.TestCase):
         """ test that save method serializes '__objects' to the JSON file """
         
         # call save method
-        self.storage.save()
+        storage.save()
 
         # check that the file was created
         self.assertTrue(os.path.exists(self.storage.__file_path))
