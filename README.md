@@ -11,7 +11,7 @@ This is the first step towards building your first full web application: the Air
 
 ## How to start and use our console
 
-Clone this repository: git clone "https://github.com/moshjerrick/AirBnB_clone.git"
-Access AirBnb directory: cd AirBnB_clone    
-Run hbnb(interactively): ./console and then press enter command
-Run hbnb(non-interactively): echo "<command>" | ./console.py
+* Clone this repository: git clone "https://github.com/moshjerrick/AirBnB_clone.git"
+* Access AirBnb directory: cd AirBnB_clone    
+* Run hbnb(interactively): ./console and then press enter command
+* Run hbnb(non-interactively): echo "<command>" | ./console.py
