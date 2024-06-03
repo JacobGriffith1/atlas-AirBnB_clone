@@ -21,5 +21,6 @@ This is the first step towards building your first full web application: the Air
 
 | Command  | Description |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Quit  | Content Cell  |
+| Create  | Content Cell  |
+| Show   |         |
