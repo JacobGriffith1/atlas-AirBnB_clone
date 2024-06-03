@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        Print the string representation of an instance 
+        Print the string representation of an instance
         based on the class name and id.
         """
         if not arg:
@@ -99,13 +99,13 @@ class HBNBCommand(cmd.Cmd):
         if class_name not in class_registry:
             print("** class doesn't exist **")
             return
-        
+
         key = "{}.{}".format(class_name, instance_id)
         # Create the key for the instance
         if key not in storage.all():
             print("** no instance found **")
             return
-        
+
         del storage.all()[key]  # Delete instance from storage
         storage.save()  # Save updated storage
 
