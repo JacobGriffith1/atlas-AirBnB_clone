@@ -3,10 +3,11 @@
 import json
 import os
 
+
 class FileStorage:
     """ Serializes and deserializes JSON objects """
-    __file_path = "file.json" #string - path to the JSON file
-    __objects = {} #dictionary - empty but will store all objects by <class name>.id
+    __file_path = "file.json"  # string - path to the JSON file
+    __objects = {}  # dictionary - will store all objects by <class name>.id
 
     def all(self):
         """ Returns the dictionary '__objects' """
@@ -45,8 +46,8 @@ class FileStorage:
         from models.review import Review
 
         dictionary = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City,
-                    'Amenity': Amenity, 'Review': Review}
+                      'State': State, 'City': City,
+                      'Amenity': Amenity, 'Review': Review}
 
         if os.path.exists(FileStorage.__file_path) is True:
             with open(FileStorage.__file_path, 'r') as f:
