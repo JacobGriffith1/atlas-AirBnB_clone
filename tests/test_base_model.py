@@ -22,7 +22,7 @@ class TestBaseModel(unittest.TestCase):
     def test_save_method(self):
         """test the save method"""
         model = BaseModel()
-        old_updated_at = self.updated_at
+        old_updated_at = model.updated_at
         model.save()
         # check that updated_at is updated
         self.assertNotEqual(model.updated_at, old_updated_at)
