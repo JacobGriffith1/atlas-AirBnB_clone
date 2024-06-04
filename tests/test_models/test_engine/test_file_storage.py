@@ -13,7 +13,7 @@ class Test_File_Storage(unittest.TestCase):
 
     def setUp(self):
         """ set up for tests """
-        self.storage = storage
+        self.storage = FileStorage()
         self.test_obj = BaseModel(id="1234")
         self.storage.new(self.test_obj)
 
