@@ -22,12 +22,9 @@ class TestBaseModel(unittest.TestCase):
     def test_save_method(self):
         """test the save method"""
         model = BaseModel()
-        self.model.old = "Old"
-        self.model.save()
-
-        self.assertIsInstance(self.model.id, str)
-        self.assertIsInstance(self.model.created_at, datetime.datetime)
-        self.assertIsInstance(self.model.updated_at, datetime.datetime)
+        Update = model.updated_at
+        model.save()
+        self.assertLess(Update, model.updated_at)
 
     def test_to_dict_method(self):
         """test the to_dict method"""
