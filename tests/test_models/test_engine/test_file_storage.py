@@ -5,23 +5,26 @@ import os
 import json
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-from models.__init__ import storage
+from models import storage
 
 
 class Test_File_Storage(unittest.TestCase):
     """ test cases for FileStorage class """
 
-    def test_setup(self):
+    def setUp(self):
         """ set up for tests """
-        self.storage = FileStorage()
+        self.storage = storage
         self.test_obj = BaseModel(id="1234")
         self.storage.new(self.test_obj)
 
+        # ensure file is deleted before tests
         if os.path.exists(FileStorage.__file_path):
             os.remove(FileStorage.__file_path)
 
     def tearDown(self):
         """ tear down test environment """
+        # clear storage objects
+        self.storage.__objects = {}
         if os.path.exists(FileStorage.__file_path):
             os.remove(FileStorage.__file_path)
 
