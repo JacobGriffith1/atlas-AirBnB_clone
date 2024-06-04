@@ -18,15 +18,15 @@ class Test_File_Storage(unittest.TestCase):
         self.storage.new(self.test_obj)
 
         # ensure file is deleted before tests
-        if os.path.exists(FileStorage.__file_path):
-            os.remove(FileStorage.__file_path)
+        if os.path.exists(storage.__file_path):
+            os.remove(storage.__file_path)
 
     def tearDown(self):
         """ tear down test environment """
         # clear storage objects
         self.storage.__objects = {}
-        if os.path.exists(FileStorage.__file_path):
-            os.remove(FileStorage.__file_path)
+        if os.path.exists(storage.__file_path):
+            os.remove(storage.__file_path)
 
     def test_save(self):
         """ test that save method serializes '__objects' to the JSON file """
@@ -35,10 +35,10 @@ class Test_File_Storage(unittest.TestCase):
         self.storage.save()
 
         # check that the file was created
-        self.assertTrue(os.path.exists(FileStorage.__file_path))
+        self.assertTrue(os.path.exists(storage.__file_path))
 
         # check that file contains correct data
-        with open(FileStorage.__file_path, 'r') as f:
+        with open(storage.__file_path, 'r') as f:
             data = json.load(f)
 
         key = "{}.{}".format(self.test_obj.__class__.__name__, "1234")
